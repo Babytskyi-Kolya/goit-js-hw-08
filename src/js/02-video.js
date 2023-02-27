@@ -14,7 +14,7 @@ player.getVideoTitle().then(function(title) {
     console.log('title:', title);
 });
 
-player.on('timeupdate', throttle(currentTime, 4000))
+player.on('timeupdate', throttle(currentTime, 1000))
 
 function currentTime (event){
     localStorage.setItem(

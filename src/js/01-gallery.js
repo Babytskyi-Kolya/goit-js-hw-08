@@ -9,7 +9,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 console.log(galleryItems);
 
 const containerGallery = document.querySelector('.gallery');
-containerGallery.addEventListener('click', onClickShowOriginalImage)
+// containerGallery.addEventListener('click', onClickShowOriginalImage)
 
 
 const listItemsMarkup = createItemGalere(galleryItems);
@@ -30,22 +30,29 @@ function createItemGalere (items){
    }).join('');
 }
 
+let gallery = new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
+  captionsData: 'alt',
+});
 
-
-
-function onClickShowOriginalImage (evt){
-    evt.preventDefault();
-
-    if(!evt.target.classList.contains('gallery__image')){
-        return;
-    };
-    
-    let gallery = new SimpleLightbox('.gallery a');
 gallery.on('show.simplelightbox', function () {
 
 });
-   gallery.on('close.simplelightbox', function () {
-   return overlay = false;
-   })
 
-}
+
+// function onClickShowOriginalImage (evt){
+//     evt.preventDefault();
+
+//     if(!evt.target.classList.contains('gallery__image')){
+//         return;
+//     };
+    
+//     let gallery = new SimpleLightbox('.gallery a');
+// gallery.on('show.simplelightbox', function () {
+
+// });
+//    gallery.on('close.simplelightbox', function () {
+//    return overlay = false;
+//    })
+
+// }
