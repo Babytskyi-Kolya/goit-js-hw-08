@@ -21,7 +21,8 @@ function onButtonSubmit (evt){
     evt.preventDefault();
 
     console.log(JSON.parse(localStorage.getItem(STOREG_KEY)));
-
+    formData.email = '';
+    formData.message = '';
     evt.currentTarget.reset();
     localStorage.removeItem(STOREG_KEY)
 }
@@ -31,7 +32,8 @@ function populateInputValue () {
 
      if (savedMessage){
         const parsedMessage = JSON.parse(savedMessage);
-        
+        formData.email = parsedMessage.email;
+        formData.message = parsedMessage.message;
         Object.keys(parsedMessage).map(element => {
             document.querySelector(`[name='${element}']`).value = parsedMessage[element];
         });
